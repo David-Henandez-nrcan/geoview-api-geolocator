@@ -1,0 +1,38 @@
+{
+  "url": "https://nominatim.openstreetmap.org/search?countrycodes=CA&format=jsonv2",
+  "urlParams": {},
+  "lookup": {
+      "in": {
+          "q": "q",
+          "lang": "accept-language"
+      },
+      "out": {
+          "name": {
+              "field": "display_name",
+              "lookup": ""
+          },
+          "lat": {
+              "field":"lat",
+              "lookup": ""
+          },
+          "lng": {
+              "field": "lon",
+              "lookup": ""
+          },
+          "bbox": {
+              "field": "boundingbox",
+              "lookup": ""
+          },
+          "province": {
+              "field": "",
+              "lookup": ""
+          },
+          "tag": [
+              {
+                  "field": "class",
+                  "lookup": ""
+              }
+          ]
+      }
+  }
+}
