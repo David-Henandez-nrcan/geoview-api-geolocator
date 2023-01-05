@@ -23,7 +23,7 @@ def get_S3Services(bucket_name):
     except ClientError as e:
         logging.error(e)
         return False 
-    
+
 def get_s3Model(bucket, service_name):
     """
     Build then call the specific object name for a given service
@@ -31,7 +31,7 @@ def get_s3Model(bucket, service_name):
     :param service_name
     :return: content of the specific object in bucket
     """
-    filename = service_name + "_metadata.json"
+    filename = service_name + "_schema.json"
 
     return open_file_s3(bucket, filename)
 

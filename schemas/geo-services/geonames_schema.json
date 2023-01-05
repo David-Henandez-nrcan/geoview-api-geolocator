@@ -1,0 +1,52 @@
+{
+    "url": "https://geogratis.gc.ca/services/geoname/_PARAM1_/geonames.json?",
+    "urlParams": {
+        "param1": "lang"
+    },
+  "staticParams": [],
+    "lookup": {
+        "in": {
+            "q": "q"
+        },
+        "out": {
+            "name": {
+                "field": "items[].name",
+                "lookup": ""
+            },
+            "lat": {
+                "field":"items[].latitude",
+                "lookup": ""
+            },
+            "lng": {
+                "field": "items[].longitude",
+                "lookup": ""
+            },
+            "bbox": {
+                "field": "items[].bbox",
+                "lookup": ""
+            },
+            "province": {
+                "field": "items[].province.code",
+                "lookup": {
+                    "type": "url",
+                    "url": "https://geogratis.gc.ca/services/geoname/_PARAM1_/codes/province/__items[].province.code__.json",
+                    "field": "descriptions"
+                }
+            },
+            "tag": [
+                {
+                    "field": "items[].location",
+                    "lookup": ""
+                },
+                {
+                    "field": "items[].generic.code",
+                    "lookup": {
+                        "type": "url",
+                        "url": "https://geogratis.gc.ca/services/geoname/_PARAM1_/codes/generic/__items[].generic.code__.json",
+                        "field": "term"
+                    }
+                }
+            ]
+        }
+    }
+}
