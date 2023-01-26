@@ -10,21 +10,21 @@ def validate_against_schema(value, definition):
              and an error string where None or empty means no error.
     """
     if value is not None:
-        type = definition.get("type")
-        if type == "string":
+        data_type = definition.get("type")
+        if data_type == "string":
             if not isinstance(value, str):
                 return value, "Invalide string value"
-        elif type == "number":
+        elif data_type == "number":
             try:
                 val = float(value)
             except:
                 return value, "Invalide number value"
             minimum = definition.get("minimum")
             maximum = definition.get("maximum")
-            if (val < minimum) or (val > maximum): 
+            if (val < minimum) or (val > maximum):
                 return val, "value number out of range"
             return val, ""
-        elif type == "array":
+        elif data_type == "array":
             if not isinstance(value,list):
                 value = value.split(",")
             min_items = definition.get("minItems")

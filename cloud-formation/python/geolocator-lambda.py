@@ -102,7 +102,7 @@ def lambda_handler(event, context):
     Those actions are:
     - Initialize. Defines variables and services, reads schemas and validates
                   parameters
-    - Query assembling. Based on the schema for each required service, a valid 
+    - Query assembling. Based on the schema for each required service, a valid
                         url is assembled before calling the REST service
     - Service output. the response is adapted to the expected structure
     - Validation. The resulting data is validated against an output schema to
