@@ -5071,7 +5071,7 @@ var GeolocatorPanelContent = function (props) {
     var useState = react.useState, useEffect = react.useEffect, useMemo = react.useMemo;
     var _a = ui.elements, TextField = _a.TextField, Select = _a.Select, Autocomplete = _a.Autocomplete, Button = _a.Button;
     var _b = useState(''), query = _b[0], setQuery = _b[1];
-    var _c = useState('en'), language = _c[0], setLanguage = _c[1];
+    var _c = useState(['en']), language = _c[0], setLanguage = _c[1];
     var _d = useState(''), services = _d[0], setServices = _d[1];
     var languages = [
         ['en', 'English'],
@@ -5080,33 +5080,19 @@ var GeolocatorPanelContent = function (props) {
     var serviceKeys = [
         ['nominatim', 'nominatim'],
         ['geonames', 'geonames'],
-        ['locate', 'locate'],
-        ['nts', 'nts'],
     ];
     function callGeolocator() {
         console.log(query);
         console.log(language);
         console.log(services);
-        var qConst = "q=";
-        var langConst = "&lang=";
-        var servConst = "";
-        if (services.length > 0) {
-            servConst = "&keys=";
-        }
-        var queryString = qConst.concat(query, langConst, language, servConst, services);
-        console.log(queryString);
-        getConvertedData(queryString);
+        getConvertedData();
     }
-    function getConvertedData(query) {
+    function getConvertedData() {
         return __awaiter(this, void 0, void 0, function () {
-            var url, strToFetch, response, result;
+            var response, result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        url = 'https://fr59c5usw4.execute-api.ca-central-1.amazonaws.com/dev?';
-                        strToFetch = url.concat(query);
-                        console.log(strToFetch);
-                        return [4 /*yield*/, fetch(strToFetch)];
+                    case 0: return [4 /*yield*/, fetch('https://fr59c5usw4.execute-api.ca-central-1.amazonaws.com/dev?q=meech')];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
@@ -5120,7 +5106,7 @@ var GeolocatorPanelContent = function (props) {
     }
     ;
     function handleServices(event, newValue) {
-        setServices(newValue.map(function (x) { return x[1]; }).join(','));
+        setServices(newValue.map(function (x) { return x[1]; }).join(', '));
     }
     return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)("label", __assign({ htmlFor: "filter" }, { children: "Search filter" })), (0,jsx_runtime.jsx)(TextField, { id: "filter", type: "text", onChange: function (e) { return setQuery(e.target.value); } }), (0,jsx_runtime.jsxs)("div", __assign({ style: { display: "grid", padding: "10px" } }, { children: [(0,jsx_runtime.jsx)("label", __assign({ htmlFor: "language" }, { children: "Language filter (optional)" })), (0,jsx_runtime.jsx)(Select, { id: "language", value: language, onChange: function (e) { return setLanguage(e.target.value); }, inputLabel: {
                             id: 'select-variable',
@@ -5217,7 +5203,7 @@ var App = function () {
     return ((0,jsx_runtime.jsx)("div", { id: "mapWM", className: "llwp-map ".concat(classes.container), style: {
             height: '100vh',
             zIndex: 0,
-        }, "data-lang": "en", "data-config": "{\r\n        'map': {\r\n          'interaction': 'dynamic',\r\n          'viewSettings': {\r\n            'zoom': 4,\r\n            'center': [-100, 60],\r\n            'projection': 3857\r\n          },\r\n          'basemapOptions': {\r\n            'basemapId': 'transport',\r\n            'shaded': false,\r\n            'labeled': true\r\n          }\r\n        },\r\n        'theme': 'dark',\r\n        'suportedLanguages': ['en', 'fr']\r\n        }" }));
+        }, "data-lang": "en", "data-config": "{\n        'map': {\n          'interaction': 'dynamic',\n          'viewSettings': {\n            'zoom': 4,\n            'center': [-100, 60],\n            'projection': 3857\n          },\n          'basemapOptions': {\n            'basemapId': 'transport',\n            'shaded': false,\n            'labeled': true\n          }\n        },\n        'theme': 'dark',\n        'suportedLanguages': ['en', 'fr']\n        }" }));
 };
 /* harmony default export */ const app = (App);
 
