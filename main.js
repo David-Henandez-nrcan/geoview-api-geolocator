@@ -5095,8 +5095,9 @@ var GeolocatorPanelContent = function (props) {
         }
         var queryString = qConst.concat(query, langConst, language, servConst, services);
         console.log(queryString);
-        var returnedData = getConvertedData(queryString);
-        DisplayReturnedData(returnedData);
+        getConvertedData(queryString);
+        //const returnedData = getConvertedData(queryString);
+        //DisplayReturnedData(returnedData);
     }
     function getConvertedData(query) {
         return __awaiter(this, void 0, void 0, function () {
@@ -5114,7 +5115,7 @@ var GeolocatorPanelContent = function (props) {
                     case 2:
                         result = _a.sent();
                         console.log(result);
-                        return [2 /*return*/, result];
+                        return [2 /*return*/];
                 }
             });
         });
@@ -5124,11 +5125,13 @@ var GeolocatorPanelContent = function (props) {
         setServices(newValue.map(function (x) { return x[1]; }).join(','));
     }
     ;
-    function DisplayReturnedData(data) {
-        for (var index in data) {
-            console.log(data[index]);
-        }
+    /*
+    function DisplayReturnedData(data: any) {
+      for (var index in data) {
+        console.log(data[index]);
+      }
     }
+  */
     return ((0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [(0,jsx_runtime.jsx)("label", __assign({ htmlFor: "filter" }, { children: "Search filter" })), (0,jsx_runtime.jsx)(TextField, { id: "filter", type: "text", onChange: function (e) { return setQuery(e.target.value); } }), (0,jsx_runtime.jsxs)("div", __assign({ style: { display: "grid", padding: "10px" } }, { children: [(0,jsx_runtime.jsx)("label", __assign({ htmlFor: "language" }, { children: "Language filter (optional)" })), (0,jsx_runtime.jsx)(Select, { id: "language", value: language, onChange: function (e) { return setLanguage(e.target.value); }, inputLabel: {
                             id: 'select-variable',
                         }, menuItems: languages.map(function (_a) {
@@ -5155,6 +5158,7 @@ const fr_translation_namespaceObject = JSON.parse('{"custom":{"geolocatorPanelTi
 
 
 
+//import { GeolocatorDataContent } from './geolocator-data-content';
 
 
 // get reference to window object
