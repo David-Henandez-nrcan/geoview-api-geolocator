@@ -5095,7 +5095,7 @@ var GeolocatorPanelContent = function (props) {
         }
         var queryString = qConst.concat(query, langConst, language, servConst, services);
         console.log(queryString);
-        getConvertedData(queryString);
+        var layerData = getConvertedData(queryString);
         //const returnedData = getConvertedData(queryString);
         //DisplayReturnedData(returnedData);
     }
@@ -5114,8 +5114,10 @@ var GeolocatorPanelContent = function (props) {
                         return [4 /*yield*/, response.json()];
                     case 2:
                         result = _a.sent();
+                        //result.map(val => {
+                        //  console.log(val);
                         console.log(result);
-                        return [2 /*return*/];
+                        return [2 /*return*/, result];
                 }
             });
         });
