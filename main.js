@@ -5069,7 +5069,7 @@ var GeolocatorPanelContent = function (props) {
     var buttonPanel = props.buttonPanel, mapId = props.mapId;
     var ui = cgpv.ui, react = cgpv.react;
     var useState = react.useState, useEffect = react.useEffect, useMemo = react.useMemo;
-    var _a = ui.elements, TextField = _a.TextField, Select = _a.Select, Autocomplete = _a.Autocomplete, Button = _a.Button, List = _a.List, ListItem = _a.ListItem;
+    var _a = ui.elements, TextField = _a.TextField, Select = _a.Select, Autocomplete = _a.Autocomplete, Button = _a.Button, List = _a.List, ListItem = _a.ListItem, ListItemText = _a.ListItemText;
     var _b = useState([]), layerData = _b[0], setLayerData = _b[1];
     var _c = useState(''), query = _c[0], setQuery = _c[1];
     var _d = useState('en'), language = _d[0], setLanguage = _d[1];
@@ -5139,7 +5139,7 @@ var GeolocatorPanelContent = function (props) {
                         }) })] })), (0,jsx_runtime.jsx)(Autocomplete, { style: { display: 'grid', paddingBottom: '20px' }, fullWidth: true, multiple: true, disableCloseOnSelect: true, disableClearable: false, id: "service-key", options: serviceKeys, getOptionLabel: function (option) { return "".concat(option[1], " (").concat(option[0], ")"); }, renderOption: function (props, option) { return (0,jsx_runtime.jsx)("span", __assign({}, props, { children: option[1] })); }, onChange: handleServices, 
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 renderInput: function (params) { return (0,jsx_runtime.jsx)(TextField, __assign({}, params, { label: "Select Service keys" })); } }), (0,jsx_runtime.jsx)(Button, __assign({ tooltip: "Process Data", tooltipPlacement: "right", type: "text", variant: "contained", onClick: function () { return callGeolocator(); } }, { children: "Process Data" })), (0,jsx_runtime.jsx)(List, { children: layerData.map(function (layerData) {
-                    return ((0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsx)(ListItem, __assign({ onClick: function () { return zoomItem([layerData.lng, layerData.lat]); } }, { children: (0,jsx_runtime.jsx)("b", { children: "(layerdata as any).name" }) })) }, layerData));
+                    return ((0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsx)(ListItem, __assign({ onClick: function () { return zoomItem([layerData.lng, layerData.lat]); } }, { children: (0,jsx_runtime.jsx)(ListItemText, { primary: layerData.name, nonce: undefined }) })) }, layerData));
                 }) })] }));
 };
 
